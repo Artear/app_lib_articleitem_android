@@ -20,13 +20,13 @@ plugins{
 
 ext {
     bintrayRepo = 'Android'
-    bintrayName = 'Articleitem'
+    bintrayName = 'articleitem'
 
-    publishedGroupId = 'com.artear.articleitem'
-    libraryName = 'Articleitem'
+    publishedGroupId = 'com.artear.cover'
+    libraryName = 'Article-Item'
     artifact = 'articleitem'
 
-    libraryDescription = 'Articleitem sample library'
+    libraryDescription = 'Article Item is the library from an article in Cover'
 
     siteUrl = 'https://github.com/Artear/app_lib_articleitem_android'
     gitUrl = 'https://github.com/Artear/app_lib_articleitem_android.git'
