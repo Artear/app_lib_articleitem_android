@@ -11,7 +11,7 @@ buildscript {
 
 
         // ------------ Gradle --------------
-        gradle_build_version = '3.3.2'
+        gradle_build_version = '3.4.0'
 
 
         // ------------ Bintray -------------
