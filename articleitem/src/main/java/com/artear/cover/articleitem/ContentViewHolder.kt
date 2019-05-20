@@ -17,7 +17,7 @@ package com.artear.cover.articleitem
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.artear.cover.coveritem.presentation.adapter.ArtearViewHolder
+import com.artear.cover.coveritem.presentation.contract.ArtearViewHolder
 import com.artear.cover.coveritem.presentation.model.ArtearSection
 import kotlinx.android.synthetic.main.article_view_holder.view.*
 

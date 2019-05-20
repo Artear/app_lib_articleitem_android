@@ -18,8 +18,8 @@ package com.artear.cover.articleitem
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.artear.cover.coveritem.presentation.adapter.ArtearViewHolder
-import com.artear.cover.coveritem.presentation.adapter.ItemAdapter
+import com.artear.cover.coveritem.presentation.contract.ArtearViewHolder
+import com.artear.cover.coveritem.presentation.contract.ItemAdapter
 import com.artear.cover.coveritem.presentation.model.ArtearItem
 import com.artear.cover.coveritem.presentation.model.ArtearSection
 
