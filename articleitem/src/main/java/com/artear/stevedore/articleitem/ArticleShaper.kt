@@ -13,20 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.artear.cover.articleitem
+package com.artear.stevedore.articleitem
 
-import com.artear.cover.coveritem.presentation.model.ArtearItem
-import com.artear.cover.coveritem.presentation.model.ArtearSection
-import com.artear.cover.coveritem.repository.model.block.Block
-import com.artear.cover.coveritem.repository.model.media.MediaType
 import com.artear.domain.coroutine.DataShaper
+import com.artear.stevedore.stevedoreitems.presentation.model.ArtearItem
+import com.artear.stevedore.stevedoreitems.presentation.model.ArtearSection
+import com.artear.stevedore.stevedoreitems.repository.model.box.Box
+import com.artear.stevedore.stevedoreitems.repository.model.media.MediaType
 
 
-class ArticleShaper : DataShaper<Block, ArtearItem> {
+class ArticleShaper : DataShaper<Box, ArtearItem> {
 
-    override suspend fun transform(input: Block): ArtearItem {
+    override suspend fun transform(input: Box): ArtearItem {
 
-        val blockContentArticle = (input.data as BlockContentArticle)
+        val blockContentArticle = (input.data as BoxDataArticle)
 
         val data = ArticleData("image",
                 blockContentArticle.title,

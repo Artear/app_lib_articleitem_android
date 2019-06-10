@@ -4,9 +4,9 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:$bintrayVersion"
-        classpath "com.github.dcendents:android-maven-gradle-plugin:$dcendentsVersion"
-        classpath "org.jetbrains.dokka:dokka-android-gradle-plugin:$dokkaVersion"
+        classpath lib.plugin.bintray
+        classpath lib.plugin.dcendents
+        classpath lib.plugin.dokka
     }
 }
 
@@ -20,13 +20,13 @@ plugins {
 
 ext {
     bintrayRepo = 'Android'
-    bintrayName = 'articleitem'
+    bintrayName = 'Article-Item'
 
-    publishedGroupId = 'com.artear.cover'
+    publishedGroupId = 'com.artear.stevedore'
     libraryName = 'Article-Item'
     artifact = 'articleitem'
 
-    libraryDescription = 'Article Item is the library from an article in Cover'
+    libraryDescription = 'Article Item is the library from an article in Stevedore'
 
     siteUrl = 'https://github.com/Artear/app_lib_articleitem_android'
     gitUrl = 'https://github.com/Artear/app_lib_articleitem_android.git'
@@ -50,8 +50,8 @@ static def getBranchName() {
 }
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion "28.0.3"
+    compileSdkVersion sdkVersion
+    buildToolsVersion buildToolsVersion
 
     def branch = getBranchName()
     def vCode = 0 + getVersionCode(branch)
@@ -81,27 +81,24 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+
     //Test
-    testImplementation "junit:junit:$junitVersion"
-    androidTestImplementation "androidx.test:core:$testCoreVersion"
-    androidTestImplementation "androidx.test.ext:junit:$testCoreVersion"
-    androidTestImplementation "androidx.test:runner:$testRunnerVersion"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoCoreVersion"
+    testImplementation lib.junit.library
+    androidTestImplementation lib.androidx.testCore
+    androidTestImplementation lib.androidx.extJunit
+    androidTestImplementation lib.androidx.testRunner
+    androidTestImplementation lib.espresso.core
 
     //Kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+    implementation lib.kotlin.standardLib
 
     //Android X
-    implementation "androidx.appcompat:appcompat:$appCompatVersion"
-    implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+    implementation lib.androidx.appcompat
+    implementation lib.androidx.constraintLayout
 
-    // --------- Artear ---------
-    //CoverItem
-    implementation "com.artear.cover:coveritem:$coverItemVersion"
-
-    //Domain
-    implementation "com.artear.domain:domain:$domainVersion"
-
+    //Artear
+    implementation lib.artear.stevedoreItems
+    implementation lib.artear.domain
 }
 
 dependencyUpdates.resolutionStrategy {

@@ -13,15 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.artear.cover.articleitem
+package com.artear.stevedore.articleitem
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.artear.cover.coveritem.presentation.contract.ArtearViewHolder
-import com.artear.cover.coveritem.presentation.contract.ItemAdapter
-import com.artear.cover.coveritem.presentation.model.ArtearItem
-import com.artear.cover.coveritem.presentation.model.ArtearSection
+import com.artear.stevedore.stevedoreitems.presentation.contract.ArtearViewHolder
+import com.artear.stevedore.stevedoreitems.presentation.contract.ItemAdapter
+import com.artear.stevedore.stevedoreitems.presentation.model.ArtearItem
+import com.artear.stevedore.stevedoreitems.presentation.model.ArtearSection
 
 
 class ArticleItemAdapter(private val listener: ArticleOnClickListener?) : ItemAdapter<ArticleData<*>> {
@@ -33,7 +33,7 @@ class ArticleItemAdapter(private val listener: ArticleOnClickListener?) : ItemAd
     override fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val view = inflater.inflate(R.layout.article_view_holder, parent, false)
-        return ContentViewHolder(view, listener)
+        return ArticleViewHolder(view, listener)
     }
 
     override fun onBindViewHolderBase(holder: ArtearViewHolder<ArticleData<*>>,

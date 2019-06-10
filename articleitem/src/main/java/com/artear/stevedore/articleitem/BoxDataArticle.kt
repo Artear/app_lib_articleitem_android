@@ -13,11 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.artear.cover.articleitem
+package com.artear.stevedore.articleitem
 
-import com.artear.cover.coveritem.repository.model.link.Link
+import com.artear.stevedore.stevedoreitems.repository.model.box.BoxData
+import com.artear.stevedore.stevedoreitems.repository.model.link.Link
+import com.artear.stevedore.stevedoreitems.repository.model.media.Media
+import com.google.gson.annotations.JsonAdapter
 
-
-interface ArticleOnClickListener {
-    fun onArticleClick(link: Link)
-}
+@JsonAdapter(BoxDataArticleDeserializer::class)
+data class BoxDataArticle(
+        val id: Int, val title: String, val description: String,
+        val link: Link?, val media: Media?
+) : BoxData()

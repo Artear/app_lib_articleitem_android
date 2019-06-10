@@ -13,16 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.artear.cover.articleitem
+package com.artear.stevedore.articleitem
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.artear.cover.coveritem.presentation.contract.ArtearViewHolder
-import com.artear.cover.coveritem.presentation.model.ArtearSection
+import com.artear.stevedore.stevedoreitems.presentation.contract.ArtearViewHolder
+import com.artear.stevedore.stevedoreitems.presentation.model.ArtearSection
 import kotlinx.android.synthetic.main.article_view_holder.view.*
 
 
-class ContentViewHolder(itemView: View, private var listener: ArticleOnClickListener? = null) :
+class ArticleViewHolder(itemView: View, private var listener: ArticleOnClickListener? = null) :
         RecyclerView.ViewHolder(itemView), ArtearViewHolder<ArticleData<*>> {
 
     override fun bind(model: ArticleData<*>, artearSection: ArtearSection) {
