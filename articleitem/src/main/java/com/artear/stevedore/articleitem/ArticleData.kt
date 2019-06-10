@@ -13,11 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.artear.cover.articleitem
+package com.artear.stevedore.articleitem
 
-import com.artear.cover.coveritem.repository.model.link.Link
+import com.artear.stevedore.stevedoreitems.presentation.model.ArtearObject
+import com.artear.stevedore.stevedoreitems.presentation.model.ArtearStyle
+import com.artear.stevedore.stevedoreitems.repository.model.link.Link
 
 
-interface ArticleOnClickListener {
-    fun onArticleClick(link: Link)
-}
+data class ArticleData<T : ArtearStyle>(
+        val imageUrl: String,
+        val title: String,
+        val description: String?,
+        val link: Link?,
+        val isVideoContent: Boolean, val style: T) : ArtearObject<T>()

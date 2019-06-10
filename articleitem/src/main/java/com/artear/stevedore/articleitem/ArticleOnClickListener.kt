@@ -13,15 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.artear.cover.articleitem
+package com.artear.stevedore.articleitem
 
-import com.artear.cover.coveritem.repository.model.BlockContent
-import com.artear.cover.coveritem.repository.model.link.Link
-import com.artear.cover.coveritem.repository.model.media.Media
-import com.google.gson.annotations.JsonAdapter
+import com.artear.stevedore.stevedoreitems.repository.model.link.Link
 
-@JsonAdapter(BlockContentArticleDeserializer::class)
-data class BlockContentArticle(
-        val id: Int, val title: String, val description: String,
-        val link: Link?, val media: Media?
-) : BlockContent()
+
+interface ArticleOnClickListener {
+    fun onArticleClick(link: Link)
+}
