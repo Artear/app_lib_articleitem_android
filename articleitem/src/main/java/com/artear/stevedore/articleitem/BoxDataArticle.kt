@@ -23,5 +23,5 @@ import com.google.gson.annotations.JsonAdapter
 @JsonAdapter(BoxDataArticleDeserializer::class)
 data class BoxDataArticle(
         val id: Int, val title: String, val description: String,
-        val link: Link?, val media: Media?
+        val link: Link, val media: Media
 ) : BoxData()

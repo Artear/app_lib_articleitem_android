@@ -19,25 +19,38 @@ import com.artear.domain.coroutine.DataShaper
 import com.artear.stevedore.stevedoreitems.presentation.model.ArtearItem
 import com.artear.stevedore.stevedoreitems.presentation.model.ArtearSection
 import com.artear.stevedore.stevedoreitems.repository.model.box.Box
-import com.artear.stevedore.stevedoreitems.repository.model.media.MediaType
+import com.artear.stevedore.stevedoreitems.repository.model.media.Media
+import com.artear.stevedore.stevedoreitems.repository.model.media.MediaDataPicture
+import com.artear.stevedore.stevedoreitems.repository.model.media.MediaDataYoutube
+import com.artear.stevedore.stevedoreitems.repository.model.media.MediaType.*
 
 
 class ArticleShaper : DataShaper<Box, ArtearItem> {
 
     override suspend fun transform(input: Box): ArtearItem {
 
-        val blockContentArticle = (input.data as BoxDataArticle)
+        val boxDataArticle = (input.data as BoxDataArticle)
+        val imageUrl = getImage(boxDataArticle.media)
 
-        val data = ArticleData("image",
-                blockContentArticle.title,
-                blockContentArticle.description,
-                blockContentArticle.link,
-                blockContentArticle.media?.type == MediaType.YOUTUBE,
-                ArticleStyle("#456765")
-        )
-
-        return ArtearItem(data, ArtearSection())
+        return imageUrl.let {
+            val data = ArticleData(imageUrl,
+                    boxDataArticle.title,
+                    boxDataArticle.description,
+                    boxDataArticle.link,
+                    boxDataArticle.media.type == YOUTUBE,
+                    input.style
+            )
+            ArtearItem(data, ArtearSection())
+        }
     }
 
+    private fun getImage(media: Media): String {
+        return when (media.type) {
+            PICTURE -> (media.data as MediaDataPicture).url
+            YOUTUBE -> (media.data as MediaDataYoutube).image.url
+            GALLERY -> TODO()
+            VIDEO -> TODO()
+        }
+    }
 
 }

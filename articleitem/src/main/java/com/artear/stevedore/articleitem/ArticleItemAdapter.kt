@@ -26,14 +26,17 @@ import com.artear.stevedore.stevedoreitems.presentation.model.ArtearSection
 
 class ArticleItemAdapter(private val listener: ArticleOnClickListener?) : ItemAdapter<ArticleData<*>> {
 
+    var viewHolder: RecyclerView.ViewHolder? = null
+    var idLayout: Int? = null
+
     override fun isForViewType(item: ArtearItem): Boolean {
         return item.model is ArticleData
     }
 
     override fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val view = inflater.inflate(R.layout.article_view_holder, parent, false)
-        return ArticleViewHolder(view, listener)
+        val view = inflater.inflate(idLayout ?: R.layout.article_view_holder, parent, false)
+        return viewHolder ?: ArticleViewHolder(view, listener)
     }
 
     override fun onBindViewHolderBase(holder: ArtearViewHolder<ArticleData<*>>,

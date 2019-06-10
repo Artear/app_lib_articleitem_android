@@ -15,7 +15,7 @@
  */
 package com.artear.stevedore.articleitem
 
-import com.artear.stevedore.stevedoreitems.repository.getSafeModelObject
+import com.artear.stevedore.stevedoreitems.repository.getModelObject
 import com.artear.stevedore.stevedoreitems.repository.model.link.Link
 import com.artear.stevedore.stevedoreitems.repository.model.media.Media
 import com.google.gson.JsonDeserializationContext
@@ -25,14 +25,14 @@ import java.lang.reflect.Type
 
 class BoxDataArticleDeserializer : JsonDeserializer<BoxDataArticle> {
 
-    override fun deserialize(json: JsonElement, typeOfT: Type?, context: JsonDeserializationContext):
-            BoxDataArticle {
+    override fun deserialize(json: JsonElement, typeOfT: Type?,
+                             context: JsonDeserializationContext): BoxDataArticle {
 
         val id = json.asJsonObject.get("id").asInt
         val title = json.asJsonObject.get("title").asString
         val description = json.asJsonObject.get("description").asString
-        val link = json.getSafeModelObject("link", context, Link::class.java)
-        val media = json.getSafeModelObject("media", context, Media::class.java)
+        val link = json.getModelObject("link", context, Link::class.java)
+        val media = json.getModelObject("media", context, Media::class.java)
 
         return BoxDataArticle(id, title, description, link, media)
     }
