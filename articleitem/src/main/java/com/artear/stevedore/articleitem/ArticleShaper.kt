@@ -19,9 +19,7 @@ import com.artear.domain.coroutine.DataShaper
 import com.artear.stevedore.stevedoreitems.presentation.model.ArtearItem
 import com.artear.stevedore.stevedoreitems.presentation.model.ArtearSection
 import com.artear.stevedore.stevedoreitems.repository.model.box.Box
-import com.artear.stevedore.stevedoreitems.repository.model.media.Media
-import com.artear.stevedore.stevedoreitems.repository.model.media.MediaDataPicture
-import com.artear.stevedore.stevedoreitems.repository.model.media.MediaDataYoutube
+import com.artear.stevedore.stevedoreitems.repository.model.media.*
 import com.artear.stevedore.stevedoreitems.repository.model.media.MediaType.*
 
 
@@ -37,19 +35,23 @@ class ArticleShaper : DataShaper<Box, ArtearItem> {
                     boxDataArticle.title,
                     boxDataArticle.description,
                     boxDataArticle.link,
-                    boxDataArticle.media.type == YOUTUBE,
+                    boxDataArticle.media.type == YOUTUBE ||
+                            boxDataArticle.media.type == VIDEO,
                     input.style
             )
             ArtearItem(data, ArtearSection())
         }
     }
 
+    /**
+     * This function should be in stevedoreitems ?????
+     */
     private fun getImage(media: Media): String {
         return when (media.type) {
             PICTURE -> (media.data as MediaDataPicture).url
             YOUTUBE -> (media.data as MediaDataYoutube).image.url
-            GALLERY -> TODO()
-            VIDEO -> TODO()
+            GALLERY -> (media.data as MediaDataGallery).items[0].url //TODO: REVISAR
+            VIDEO -> (media.data as MediaDataVideo).image.url
         }
     }
 
