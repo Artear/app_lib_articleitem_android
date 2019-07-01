@@ -24,7 +24,6 @@ import com.artear.stevedore.stevedoreitems.presentation.contract.ItemAdapter
 import com.artear.stevedore.stevedoreitems.presentation.model.ArtearItem
 import com.artear.stevedore.stevedoreitems.presentation.model.ArtearItemDecoration
 
-
 class ArticleItemAdapter(private val listener: ArticleOnClickListener?) : ItemAdapter<ArticleItemData<*>> {
 
     var viewHolder: RecyclerView.ViewHolder? = null

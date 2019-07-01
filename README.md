@@ -1,7 +1,31 @@
-# app_base_library_android
-app_base_library_android Lib 
+# Article Item
+Article Item Library
 
-Library for clone and have ready a library framework for start to work
+- Library for draw a article in a stevedore views
+
+
+Version 
+--------
+
+[![Latest Version](https://api.bintray.com/packages/artearmobile/Android/Article-Item/images/download.svg)](https://bintray.com/artearmobile/Android/Article-Item/_latestVersion)
+
+
+Download
+--------
+via Maven:
+```xml
+<dependency>
+  <groupId>com.artear.stevedore</groupId>
+  <artifactId>articleitem</artifactId>
+  <version>0.0.7</version>
+</dependency>
+```
+or Gradle:
+```groovy
+implementation 'com.artear.stevedore:articleitem:0.0.7'
+```
+Lib requires at minimum Java 7 or Android 4.1.
+
 
 License
 =======
