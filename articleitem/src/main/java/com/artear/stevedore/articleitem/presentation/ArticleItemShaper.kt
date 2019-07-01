@@ -13,9 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.artear.stevedore.articleitem
+package com.artear.stevedore.articleitem.presentation
 
 import com.artear.domain.coroutine.DataShaper
+import com.artear.stevedore.articleitem.repository.BoxDataArticle
 import com.artear.stevedore.stevedoreitems.presentation.model.ArtearItem
 import com.artear.stevedore.stevedoreitems.presentation.model.ArtearItemDecoration
 import com.artear.stevedore.stevedoreitems.repository.model.box.Box
@@ -23,7 +24,7 @@ import com.artear.stevedore.stevedoreitems.repository.model.media.MediaType.VIDE
 import com.artear.stevedore.stevedoreitems.repository.model.media.MediaType.YOUTUBE
 
 
-class ArticleShaper : DataShaper<Box, ArtearItem> {
+class ArticleItemShaper : DataShaper<Box, ArtearItem> {
 
     override suspend fun transform(input: Box): ArtearItem? {
 
@@ -31,7 +32,7 @@ class ArticleShaper : DataShaper<Box, ArtearItem> {
         val imageUrl = boxDataArticle.media.getImage()
 
         return imageUrl?.let {
-            val data = ArticleData(imageUrl,
+            val data = ArticleItemData(imageUrl,
                     boxDataArticle.title,
                     boxDataArticle.description,
                     boxDataArticle.link,

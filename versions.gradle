@@ -9,7 +9,7 @@ buildscript {
                         gradleBuildToolsVersion: '3.4.1'
                 ],
                 artear          : [
-                        domainVersion        : "0.0.7",
+                        domainVersion        : "0.0.8",
                         networkingVersion    : "0.0.4",
                         stevedoreItemsVersion: "0.2.9",
                         toolsVersion         : "0.0.19"

@@ -13,24 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.artear.stevedore.articleitem
+package com.artear.stevedore.articleitem.presentation
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.artear.stevedore.articleitem.R
 import com.artear.stevedore.stevedoreitems.presentation.contract.ArtearViewHolder
 import com.artear.stevedore.stevedoreitems.presentation.contract.ItemAdapter
 import com.artear.stevedore.stevedoreitems.presentation.model.ArtearItem
 import com.artear.stevedore.stevedoreitems.presentation.model.ArtearItemDecoration
 
 
-class ArticleItemAdapter(private val listener: ArticleOnClickListener?) : ItemAdapter<ArticleData<*>> {
+class ArticleItemAdapter(private val listener: ArticleOnClickListener?) : ItemAdapter<ArticleItemData<*>> {
 
     var viewHolder: RecyclerView.ViewHolder? = null
     var idLayout: Int? = null
 
     override fun isForViewType(item: ArtearItem): Boolean {
-        return item.model is ArticleData
+        return item.model is ArticleItemData
     }
 
     override fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
@@ -39,8 +40,8 @@ class ArticleItemAdapter(private val listener: ArticleOnClickListener?) : ItemAd
         return viewHolder ?: ArticleViewHolder(view, listener)
     }
 
-    override fun onBindViewHolderBase(holder: ArtearViewHolder<ArticleData<*>>,
-                                      model: ArticleData<*>, artearItemDecoration: ArtearItemDecoration) {
+    override fun onBindViewHolderBase(holder: ArtearViewHolder<ArticleItemData<*>>,
+                                      model: ArticleItemData<*>, artearItemDecoration: ArtearItemDecoration) {
         holder.bind(model, artearItemDecoration)
     }
 }

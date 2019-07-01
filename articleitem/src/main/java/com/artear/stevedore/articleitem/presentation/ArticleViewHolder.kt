@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.artear.stevedore.articleitem
+package com.artear.stevedore.articleitem.presentation
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
@@ -26,9 +26,9 @@ import kotlinx.android.synthetic.main.article_view_holder.view.*
 
 
 class ArticleViewHolder(itemView: View, private var listener: ArticleOnClickListener? = null) :
-        RecyclerView.ViewHolder(itemView), ArtearViewHolder<ArticleData<BoxStyle>> {
+        RecyclerView.ViewHolder(itemView), ArtearViewHolder<ArticleItemData<BoxStyle>> {
 
-    override fun bind(model: ArticleData<BoxStyle>, artearItemDecoration: ArtearItemDecoration) {
+    override fun bind(model: ArticleItemData<BoxStyle>, artearItemDecoration: ArtearItemDecoration) {
 
         itemView.apply {
             contentTitle.text = model.title
