@@ -25,4 +25,5 @@ data class ArticleData<T : ArtearStyle>(
         val title: String,
         val description: String?,
         val link: Link?,
-        val isVideoContent: Boolean, val style: T) : ArtearObject<T>()
+        val isVideoContent: Boolean,
+        val style: T) : ArtearObject<T>()

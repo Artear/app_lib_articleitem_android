@@ -17,39 +17,31 @@ package com.artear.stevedore.articleitem
 
 import com.artear.domain.coroutine.DataShaper
 import com.artear.stevedore.stevedoreitems.presentation.model.ArtearItem
-import com.artear.stevedore.stevedoreitems.presentation.model.ArtearSection
+import com.artear.stevedore.stevedoreitems.presentation.model.ArtearItemDecoration
 import com.artear.stevedore.stevedoreitems.repository.model.box.Box
-import com.artear.stevedore.stevedoreitems.repository.model.media.Media
-import com.artear.stevedore.stevedoreitems.repository.model.media.MediaDataPicture
-import com.artear.stevedore.stevedoreitems.repository.model.media.MediaDataYoutube
-import com.artear.stevedore.stevedoreitems.repository.model.media.MediaType.*
+import com.artear.stevedore.stevedoreitems.repository.model.media.MediaType.VIDEO
+import com.artear.stevedore.stevedoreitems.repository.model.media.MediaType.YOUTUBE
 
 
 class ArticleShaper : DataShaper<Box, ArtearItem> {
 
-    override suspend fun transform(input: Box): ArtearItem {
+    override suspend fun transform(input: Box): ArtearItem? {
 
         val boxDataArticle = (input.data as BoxDataArticle)
-        val imageUrl = getImage(boxDataArticle.media)
+        val imageUrl = boxDataArticle.media.getImage()
 
-        return imageUrl.let {
+        return imageUrl?.let {
             val data = ArticleData(imageUrl,
                     boxDataArticle.title,
                     boxDataArticle.description,
                     boxDataArticle.link,
-                    boxDataArticle.media.type == YOUTUBE,
+                    boxDataArticle.media.type == YOUTUBE ||
+                            boxDataArticle.media.type == VIDEO,
                     input.style
             )
-            ArtearItem(data, ArtearSection())
-        }
-    }
 
-    private fun getImage(media: Media): String {
-        return when (media.type) {
-            PICTURE -> (media.data as MediaDataPicture).url
-            YOUTUBE -> (media.data as MediaDataYoutube).image.url
-            GALLERY -> TODO()
-            VIDEO -> TODO()
+
+            ArtearItem(data, ArtearItemDecoration())
         }
     }
 

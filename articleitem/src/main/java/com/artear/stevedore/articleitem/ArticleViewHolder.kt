@@ -17,8 +17,10 @@ package com.artear.stevedore.articleitem
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+
 import com.artear.stevedore.stevedoreitems.presentation.contract.ArtearViewHolder
-import com.artear.stevedore.stevedoreitems.presentation.model.ArtearSection
+import com.artear.stevedore.stevedoreitems.presentation.model.ArtearItemDecoration
+
 import com.artear.stevedore.stevedoreitems.repository.model.box.BoxStyle
 import kotlinx.android.synthetic.main.article_view_holder.view.*
 
@@ -26,12 +28,10 @@ import kotlinx.android.synthetic.main.article_view_holder.view.*
 class ArticleViewHolder(itemView: View, private var listener: ArticleOnClickListener? = null) :
         RecyclerView.ViewHolder(itemView), ArtearViewHolder<ArticleData<BoxStyle>> {
 
-    override fun bind(model: ArticleData<BoxStyle>, artearSection: ArtearSection) {
-
-        model.style
+    override fun bind(model: ArticleData<BoxStyle>, artearItemDecoration: ArtearItemDecoration) {
 
         itemView.apply {
-           contentTitle.text = model.title
+            contentTitle.text = model.title
         }
 
         itemView.setOnClickListener {

@@ -21,7 +21,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.artear.stevedore.stevedoreitems.presentation.contract.ArtearViewHolder
 import com.artear.stevedore.stevedoreitems.presentation.contract.ItemAdapter
 import com.artear.stevedore.stevedoreitems.presentation.model.ArtearItem
-import com.artear.stevedore.stevedoreitems.presentation.model.ArtearSection
+import com.artear.stevedore.stevedoreitems.presentation.model.ArtearItemDecoration
 
 
 class ArticleItemAdapter(private val listener: ArticleOnClickListener?) : ItemAdapter<ArticleData<*>> {
@@ -40,7 +40,7 @@ class ArticleItemAdapter(private val listener: ArticleOnClickListener?) : ItemAd
     }
 
     override fun onBindViewHolderBase(holder: ArtearViewHolder<ArticleData<*>>,
-                                      model: ArticleData<*>, artearSection: ArtearSection) {
-        holder.bind(model, artearSection)
+                                      model: ArticleData<*>, artearItemDecoration: ArtearItemDecoration) {
+        holder.bind(model, artearItemDecoration)
     }
 }
