@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.artear.stevedore.articleitem
+package com.artear.stevedore.articleitem.repository
 
 import com.artear.stevedore.stevedoreitems.repository.getModelObject
 import com.artear.stevedore.stevedoreitems.repository.model.link.Link
@@ -28,7 +28,7 @@ class BoxDataArticleDeserializer : JsonDeserializer<BoxDataArticle> {
     override fun deserialize(json: JsonElement, typeOfT: Type?,
                              context: JsonDeserializationContext): BoxDataArticle {
 
-        val id = json.asJsonObject.get("id").asInt
+        val id = json.asJsonObject.get("id").asString
         val title = json.asJsonObject.get("title").asString
         val description = json.asJsonObject.get("description").asString
         val link = json.getModelObject("link", context, Link::class.java)

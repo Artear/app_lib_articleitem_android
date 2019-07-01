@@ -1,7 +1,7 @@
 # Article Item
 Article Item Library
 
-- Library for draw a Article in a stevedore views
+º- Library for draw an Article in a stevedore views
 
 
 Version 

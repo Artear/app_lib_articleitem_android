@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.artear.stevedore.articleitem
+package com.artear.stevedore.articleitem.presentation
 
 import com.artear.stevedore.stevedoreitems.presentation.model.ArtearObject
 import com.artear.stevedore.stevedoreitems.presentation.model.ArtearStyle
 import com.artear.stevedore.stevedoreitems.repository.model.link.Link
 
 
-data class ArticleData<T : ArtearStyle>(
+data class ArticleItemData<T : ArtearStyle>(
         val imageUrl: String,
         val title: String,
         val description: String?,
