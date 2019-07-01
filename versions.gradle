@@ -10,9 +10,7 @@ buildscript {
                 ],
                 artear          : [
                         domainVersion        : "0.0.8",
-                        networkingVersion    : "0.0.4",
-                        stevedoreItemsVersion: "0.2.9",
-                        toolsVersion         : "0.0.19"
+                        stevedoreItemsVersion: "0.2.9"
                 ],
                 espresso        : [
                         coreVersion: "3.2.0"
@@ -52,9 +50,7 @@ buildscript {
                 ],
                 artear   : [
                         domain        : "com.artear.domain:domain:${versionLib.artear.domainVersion}",
-                        networking    : "com.artear.networking:networking:${versionLib.artear.networkingVersion}",
-                        stevedoreItems: "com.artear.stevedore:stevedoreitems:${versionLib.artear.stevedoreItemsVersion}",
-                        tools         : "com.artear.tools:tools:${versionLib.artear.toolsVersion}"
+                        stevedoreItems: "com.artear.stevedore:stevedoreitems:${versionLib.artear.stevedoreItemsVersion}"
                 ],
                 espresso : [
                         core: "androidx.test.espresso:espresso-core:${versionLib.espresso.coreVersion}"
