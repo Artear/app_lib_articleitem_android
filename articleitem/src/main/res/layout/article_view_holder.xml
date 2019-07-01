@@ -13,9 +13,9 @@
         android:id="@+id/contentImage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
         android:adjustViewBounds="true"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/contentTitle"
@@ -29,8 +29,7 @@
         tools:layout_height="105dp"
         tools:paddingLeft="14dp"
         tools:paddingRight="14dp"
-        tools:paddingTop="21dp"
-        />
+        tools:paddingTop="21dp" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/itemDescription"
